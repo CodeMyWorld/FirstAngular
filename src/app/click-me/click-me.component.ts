@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpServiceService } from '../http-service.service'
+import {Hero} from '../hero'
 
 @Component({
   selector: 'click-me',
@@ -8,17 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class ClickMeComponent implements OnInit {
   clickMessage = 'havent click yet';
   values = '';
-  constructor() { }
+  constructor(private httpService: HttpServiceService) { }
 
   ngOnInit() {
   }
 
   onClickMe(){
-    this.clickMessage = 'You just clicked the button';
+    this.httpService.getHeroes().then(heroes => this.clickMessage = heroes);
   }
-  onKey(event: any){
-    this.values += event.key + ' | ';
+  onKey(value: string){
+    this.values += value + ' | ';
   }
-
-
 }

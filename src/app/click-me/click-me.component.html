@@ -2,5 +2,7 @@
   {{clickMessage}}
 </p>
 <button (click)="onClickMe()">Click me!</button>
-<input (keyup)="onKey($event)">
+<input #box (keyup.enter)="onKey(box.value)"
+(blur)="onKey(box.value)"
+>
 <p>{{values}}</p>
