@@ -35,5 +35,4 @@ export class HttpServiceService {
    .catch(this.handleError);
  }
 
-
 }
