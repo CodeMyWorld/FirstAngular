@@ -8,9 +8,6 @@ import {Hero} from './hero'
 })
 
 export class AppComponent {
-  title = 'Heros';
-  myHero = 'Alice';
-  heros = [new Hero(1, 'PA'),
-  new Hero(2, 'MK')];
+  title = 'Rate';
 }
 

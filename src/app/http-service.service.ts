@@ -4,11 +4,11 @@ import { Hero } from './hero'
 import 'rxjs/add/operator/toPromise';
 import './rxjs-operators'
 import { Observable } from 'rxjs/Observable'
-import { Currency } from './currency'
+import { Currency } from './currency/currency'
 
 @Injectable()
 export class HttpServiceService {
-  private url = "/api/currencies";
+  private url = "/api/currency/currencies";
 
   constructor(private http: Http) {}
 
@@ -20,13 +20,13 @@ export class HttpServiceService {
   }
 
   private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
+    console.error('An error occurred hahahaha', error); // for demo purposes only
     return Promise.reject(error.message || error);  
  }
 
  private extractData(res: Response){
    let body = res.json();
-   return body.result.currencies || {};
+   return body.data || {};
  }
 
  getCurrencies(): Observable<Currency[]>{

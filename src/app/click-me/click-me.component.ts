@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServiceService } from '../http-service.service'
 import {Hero} from '../hero'
-import { Currency } from '../currency'
+import { Currency } from '../currency/currency'
+import { RouterModule }   from '@angular/router';
+
 @Component({
   selector: 'click-me',
   templateUrl: './click-me.component.html',
@@ -14,18 +16,16 @@ export class ClickMeComponent implements OnInit {
   constructor(private httpService: HttpServiceService) { }
   currencies: Currency[];
   errorMessage: string
+  inputvalue: string
 
   ngOnInit() {
   }
 
   onClickMe(){
-    var response;
-    this.httpService.getHeroes().then(heroes => this.values = heroes.toString());
-
     this.httpService.getCurrencies().subscribe(
       currencies => this.currencies = currencies,
       errorMessage => this.errorMessage = <any>errorMessage
-    )
+    );
   }
   onKey(value: string){
     this.values += value + ' | ';

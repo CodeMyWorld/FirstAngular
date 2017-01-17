@@ -5,6 +5,8 @@
 <input #box (keyup.enter)="onKey(box.value)"
 (blur)="onKey(box.value)"
 >
+<input type="text" placeholder="input"  [(ngModel)]="inputvalue">
 <p>{{values}}</p>
+<p>{{inputvalue}}</p>
 
 <p *ngFor="let currency of currencies"> {{currency.name}} </p>
