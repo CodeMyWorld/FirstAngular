@@ -21,16 +21,16 @@ export class CurrencyService {
 
  private extractData(res: Response){
    let body = res.json();
-   return body.data || {};
+   return body || {};
  }
 
- getCurrencies(): Observable<Currency[]>{
+ getCurrencies(): Observable<any>{
    return this.http.get(this.allCurrenciesUrl)
    .map(this.extractData)
    .catch(this.handleError);
  }
 
- addCurrency(code: string): Observable<Currency>{
+ addCurrency(code: string): Observable<any>{
    let params = new URLSearchParams();
    params.append('code', code);
    return this.http.post(this.addCurrencyUrl,params)

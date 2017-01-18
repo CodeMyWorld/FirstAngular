@@ -19,24 +19,10 @@ export class CurrencyComponent implements OnInit {
 
   getAllCurrencies(){
     this.currencyService.getCurrencies().subscribe(
-      currencies => this.currencies = currencies,
-      errorMessage => alert(<any>errorMessage)
+      body => {
+        this.currencies = body.data;
+      },
+      errorMessage => console.log(errorMessage)
     )
   }
-
-  addCurrency(){
-    if(this.inputCode != null){
-      this.currencyService.addCurrency(this.inputCode).subscribe(
-        currency => alert(currency.cid),
-        errorMessage => alert(errorMessage)
-      )
-    this.getAllCurrencies();
-    }
-  }
-
-  addButton(){
-    alert(this.inputCode);
-    this.addCurrency();
-  }
-
 }
