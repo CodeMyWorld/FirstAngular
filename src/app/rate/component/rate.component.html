@@ -1,0 +1,21 @@
+
+
+
+<md-list>
+  <md-list-item class="rate-item" *ngFor="let rate of currentRates">
+    <div class="rate-item">
+      <img class="flag" [src]="currencies[rate.cid].icon">
+      <span class="text-display">{{rate.value}}</span>
+      <span class="text-display">{{currencies[rate.cid].name}}</span>
+    </div>
+  </md-list-item>
+  <md-divider></md-divider>
+</md-list>
+
+
+<md-select placeholder="Base" >
+    <md-option *ngFor="let currency of currencies.values()">
+      hello
+    </md-option>
+     <md-option value="axe"> </md-option>
+  </md-select>

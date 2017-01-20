@@ -11,10 +11,13 @@ import { CurrencyComponent } from './currency/component/currency.component';
 import { MaterialModule, MdSnackBar } from '@angular/material';
 import { AddComponent } from './currency/component/add.component'
 import { RouterModule, Routes } from '@angular/router';
+import { RateComponent } from './rate/component/rate.component';
+import { RateService } from './rate/service/rate.service'
+
 
 
 const appRoutes: Routes = [
-  {path: '', component: CurrencyComponent},
+  {path: '', component: RateComponent},
   {path: 'add', component: AddComponent}
 ];
 
@@ -23,7 +26,8 @@ const appRoutes: Routes = [
     AppComponent,
     ClickMeComponent,
     CurrencyComponent,
-    AddComponent
+    AddComponent,
+    RateComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,7 @@ const appRoutes: Routes = [
     MaterialModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [HttpServiceService, CurrencyService, MdSnackBar],
+  providers: [HttpServiceService, CurrencyService, MdSnackBar, RateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

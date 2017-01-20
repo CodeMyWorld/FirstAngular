@@ -17,7 +17,7 @@ export class CurrencyComponent implements OnInit {
     this.getAllCurrencies();
   }
 
-  getAllCurrencies(){
+  getAllCurrencies() {
     this.currencyService.getCurrencies().subscribe(
       body => {
         this.currencies = body.data;

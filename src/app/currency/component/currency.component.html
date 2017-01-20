@@ -1,11 +1,8 @@
 <div class="currency-list">
   <md-list>
-<div *ngFor="let currency of currencies">
-    <md-list-item >
-      <img class="flag" src="assets/flags/ad.svg">
-      {{currency.name}}
+    <md-list-item *ngFor="let currency of currencies">
+      <img class="flag" src="assets/flags/ad.svg"> {{currency.name}}
     </md-list-item>
     <md-divider></md-divider>
-</div>
   </md-list>
 </div>
