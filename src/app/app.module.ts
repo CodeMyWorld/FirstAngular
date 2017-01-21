@@ -8,11 +8,12 @@ import { ClickMeComponent } from './click-me/click-me.component';
 import { HttpServiceService } from './http-service.service';
 import {CurrencyService} from './currency/service/currency.service';
 import { CurrencyComponent } from './currency/component/currency.component';
-import { MaterialModule, MdSnackBar } from '@angular/material';
+import { MaterialModule, MdSnackBar, MdDialogRef} from '@angular/material';
 import { AddComponent } from './currency/component/add.component'
 import { RouterModule, Routes } from '@angular/router';
 import { RateComponent } from './rate/component/rate.component';
-import { RateService } from './rate/service/rate.service'
+import { RateService } from './rate/service/rate.service';
+import { CurrenciesComponent } from './currency/component/currencies.component'
 
 
 
@@ -27,7 +28,11 @@ const appRoutes: Routes = [
     ClickMeComponent,
     CurrencyComponent,
     AddComponent,
-    RateComponent
+    RateComponent,
+    CurrenciesComponent
+  ],
+  entryComponents: [
+    CurrenciesComponent    
   ],
   imports: [
     BrowserModule,

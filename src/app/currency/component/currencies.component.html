@@ -1,0 +1,8 @@
+<md-grid-list cols="5" rowHeigh="fit" gutterSize="4px">
+  <md-grid-tile *ngFor="let currency of currencies"  (click)="selectCurrency(currency.cid)">
+    <md-card style="width: 80px; height: 100px">
+      <h3>{{currency.code}}</h3>
+      <img md-card-image  [src]="currency.icon">
+    </md-card>
+  </md-grid-tile>
+</md-grid-list>
