@@ -8,7 +8,9 @@ import { Observable } from 'rxjs/Observable'
 @Injectable()
 export class RateService {
 
-  private currentRateUrl = "/api/rate/current"
+  private currentRateUrl = "/api/rate/current";
+  private historicalRateUrl = "/api/rate/history"
+  
   constructor(private http: Http) { }
 
   getCurrentRate(from: string): Observable<any> {
@@ -29,6 +31,17 @@ export class RateService {
   private extractData(res: Response) {
     let body = res.json();
     return body || {};
+  }
+
+  getHistoricalRate(from: string, to: string, start: number, end: number): Observable<any>{
+    let params = new URLSearchParams();
+    params.append('from', from);
+    params.append('to', to);
+    params.append('start', start.toString());
+    params.append('end', end.toString());
+    return this.http.get(this.historicalRateUrl, {search: params})
+    .map(this.extractData)
+    .catch(this.handleError)
   }
 
 }

@@ -4,6 +4,7 @@
       <img class="flag" [src]="currencies[rate.cid].icon">
       <span class="text-display">{{rate.value}}</span>
       <span class="text-display">{{currencies[rate.cid].name}}</span>
+      <md-icon (click)="displayHistoricalRate(rate.cid)">home</md-icon>
     </div>
   </md-list-item>
   <md-divider></md-divider>

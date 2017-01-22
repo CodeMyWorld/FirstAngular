@@ -11,9 +11,10 @@ import { CurrencyComponent } from './currency/component/currency.component';
 import { MaterialModule, MdSnackBar, MdDialogRef} from '@angular/material';
 import { AddComponent } from './currency/component/add.component'
 import { RouterModule, Routes } from '@angular/router';
-import { RateComponent } from './rate/component/rate.component';
+import { RateComponent, SelectBaseCurrencyDialog, HistoricalRateDialog } from './rate/component/rate.component';
 import { RateService } from './rate/service/rate.service';
-import { CurrenciesComponent } from './currency/component/currencies.component'
+import { SharedService } from './shared.service'
+import { ChartModule } from 'angular2-highcharts' 
 
 
 
@@ -29,10 +30,12 @@ const appRoutes: Routes = [
     CurrencyComponent,
     AddComponent,
     RateComponent,
-    CurrenciesComponent
+    SelectBaseCurrencyDialog,
+    HistoricalRateDialog,
   ],
   entryComponents: [
-    CurrenciesComponent    
+    SelectBaseCurrencyDialog,
+    HistoricalRateDialog
   ],
   imports: [
     BrowserModule,
@@ -40,9 +43,10 @@ const appRoutes: Routes = [
     HttpModule,
     JsonpModule,
     MaterialModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ChartModule
   ],
-  providers: [HttpServiceService, CurrencyService, MdSnackBar, RateService],
+  providers: [HttpServiceService, CurrencyService, MdSnackBar, RateService, SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
