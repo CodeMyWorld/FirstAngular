@@ -7,6 +7,7 @@ import { MdDialog, MdDialogRef } from '@angular/material'
 import { SharedService } from '../../shared.service'
 import { ChartModule } from 'angular2-highcharts'
 
+
 @Component({
   selector: 'app-rate',
   templateUrl: './rate.component.html',
@@ -83,6 +84,14 @@ export class RateComponent implements OnInit {
       height: '800px'
     })
   }
+
+  updateFilter(event){
+    let val = event.target.value;
+
+    let temp = this.currentRates.filter(function(d)){
+      return curren
+    }
+  }
 }
 
 @Component({
@@ -102,7 +111,7 @@ export class HistoricalRateDialog implements OnInit {
   ngOnInit() {
     this.baseCurrency = this.sharedService.baseCurrency;
     this.selectedCurrency = this.sharedService.selectedCurrency;
-    this.rateService.getHistoricalRate(this.baseCurrency.cid, this.selectedCurrency, 1483401600000, 1484784000000)
+    this.rateService.getHistoricalRate(this.baseCurrency.cid, this.selectedCurrency, 1483401600000, 1485129600000)
       .subscribe(
       body => {
         let data = body.data;

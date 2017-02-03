@@ -1,17 +1,31 @@
-<md-list>
-  <md-list-item class="rate-item" *ngFor="let rate of currentRates">
-    <div class="rate-item">
-      <img class="flag" [src]="currencies[rate.cid].icon">
-      <span class="text-display">{{rate.value}}</span>
-      <span class="text-display">{{currencies[rate.cid].name}}</span>
-      <md-icon (click)="displayHistoricalRate(rate.cid)">home</md-icon>
-    </div>
-  </md-list-item>
-  <md-divider></md-divider>
-</md-list>
 <md-card style="width: 80px; height: 100px">
 <h3>{{baseCurrency?.code}}</h3>
 <img md-card-image [src]="baseCurrency?.icon">
 </md-card>
+<md-input-container>
+  <input md-input placeholder="Input Currency Code" (keyup)="updateFilter($event)">
+</md-input-container>
+<div>
+  <ngx-datatable class="material" [rows]="currentRates">
+    <ngx-datatable-column name="Currency" prop="cid">
+      <template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+        <span (click)="sort()">haha</span>
+      </template>
+      <template let-row="row" ngx-datatable-cell-template let-value="currencies[value].code">
+        <img class="flag" [src]="currencies[row.cid].icon">
+      </template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Value">
+      <template let-value="value" ngx-datatable-cell-template>
+        {{value}}
+      </template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="History">
+      <template let-row="row" ngx-datatable-cell-template>
+        <md-icon style="cursor: pointer" (click)="displayHistoricalRate(row.cid)">home</md-icon>
+</template>
+</ngx-datatable-column>
+</ngx-datatable>
+</div>
 
 <button md-button (click)="selectBaseCurrency()">select</button>

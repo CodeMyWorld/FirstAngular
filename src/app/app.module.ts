@@ -15,6 +15,7 @@ import { RateComponent, SelectBaseCurrencyDialog, HistoricalRateDialog } from '.
 import { RateService } from './rate/service/rate.service';
 import { SharedService } from './shared.service'
 import { ChartModule } from 'angular2-highcharts' 
+import { NgxDatatableModule } from '@swimlane/ngx-datatable'
 
 
 
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     JsonpModule,
     MaterialModule.forRoot(),
     RouterModule.forRoot(appRoutes),
-    ChartModule
+    ChartModule,
+    NgxDatatableModule
   ],
   providers: [HttpServiceService, CurrencyService, MdSnackBar, RateService, SharedService],
   bootstrap: [AppComponent]
